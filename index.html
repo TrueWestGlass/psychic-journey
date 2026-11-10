@@ -1,0 +1,908 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TrueWest Glass & Aluminum | Storefronts & Glass Railings, Vancouver</title>
+<meta name="description" content="TrueWest designs, supplies and installs commercial storefronts, glass railings and glass repair across Metro Vancouver and the Lower Mainland.">
+<meta property="og:title" content="TrueWest Glass & Aluminum | Built right.">
+<meta property="og:description" content="Commercial storefronts, glass railings and fast glass repair across Metro Vancouver.">
+<meta property="og:image" content="images/hero-storefront.jpg">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Inter:wght@400;500;600&display=swap">
+<style>
+/* Layout: ported from the TrueWest Lovable build — slate ink header and bands, sea-glass teal accent,
+   square corners, hairline rules, shop-drawing grids. A deliberate single light look, as in the original. */
+:root{
+  --background:oklch(0.99 0.001 197); --foreground:oklch(0.256 0.012 237); --surface:oklch(0.956 0.003 220);
+  --ink:oklch(0.256 0.012 237); --ink-deep:oklch(0.218 0.01 234); --ink-fg:oklch(0.956 0.003 220);
+  --ink-muted:oklch(0.756 0.012 240); --ink-line:oklch(0.956 0.003 220 / 18%); --glass:oklch(0.755 0.045 207);
+  --muted-fg:oklch(0.494 0.016 241); --accent:oklch(0.553 0.05 208); --accent-fg:oklch(0.99 0.001 197);
+  --border:oklch(0.89 0.009 225); --error-soft:oklch(0.801 0.089 32);
+  --shadow-pane:0 30px 60px -30px oklch(0.256 0.012 237 / 45%);
+  --display:"Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --sans:"Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+*{box-sizing:border-box;border-color:var(--border)}
+html{scroll-behavior:smooth}
+body{background:var(--background);color:var(--foreground);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top, 0px);z-index:60;background:var(--ink)}
+h1,h2,h3,h4{font-family:var(--display);font-weight:600;line-height:1.05;text-wrap:balance;margin:0}
+p,ul,ol,dl,dd,figure{margin:0}
+ul,ol{padding:0;list-style:none}
+a{color:inherit;text-decoration:none}
+img{display:block}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.ink :focus-visible,header :focus-visible,footer :focus-visible{outline-color:var(--glass)}
+em{font-style:italic;font-weight:500}
+.wrap{width:100%;max-width:1180px;margin-inline:auto;padding-left:max(20px, env(safe-area-inset-left, 0px));padding-right:max(20px, env(safe-area-inset-right, 0px))}
+.eyebrow{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--accent)}
+.ink .eyebrow,.eyebrow.glass{color:var(--glass)}
+.muted{color:var(--muted-fg)}
+.t-accent{color:var(--accent)}
+.blueprint{background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:24px 24px;background-position:-1px -1px}
+.ink{background-color:var(--ink);color:var(--ink-fg)}
+.blueprint-ink{background-image:linear-gradient(var(--ink-line) 1px,transparent 1px),linear-gradient(90deg,var(--ink-line) 1px,transparent 1px);background-size:32px 32px}
+.glint{position:relative;overflow:hidden}
+.glint::after{content:"";position:absolute;inset:-20%;background:linear-gradient(115deg,transparent 40%,oklch(1 0 0 / 22%) 48%,transparent 56%);transform:translateX(-60%);transition:transform 1.1s ease;pointer-events:none}
+.glint:hover::after{transform:translateX(60%)}
+.cover{width:100%;height:100%;object-fit:cover}
+.r43{aspect-ratio:4/3}.r45{aspect-ratio:4/5}
+.shadow-pane{box-shadow:var(--shadow-pane)}
+@media (prefers-reduced-motion: no-preference){
+  .draw-in{stroke-dasharray:160;animation:draw-in 1.4s ease-out .3s both}
+  .fade-up{animation:fade-up .8s ease-out both}
+  .zoom img{transition:transform .7s}
+  .zoom:hover img,.group:hover .zoom img{transform:scale(1.03)}
+}
+@keyframes draw-in{from{stroke-dashoffset:160}to{stroke-dashoffset:0}}
+@keyframes fade-up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.ic{width:16px;height:16px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ic-lg{width:44px;height:44px;fill:none;stroke:currentColor;stroke-width:1.6}
+.ic-lg .a{stroke:var(--accent)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;white-space:nowrap;height:48px;padding:0 24px;font-size:14px;font-weight:600;letter-spacing:.025em;border:1px solid;cursor:pointer;transition:background-color .15s,color .15s,border-color .15s}
+.btn-brand{border-color:var(--foreground);background:var(--foreground);color:var(--background)}
+.btn-brand:hover{border-color:var(--accent);background:var(--accent);color:var(--accent-fg)}
+.btn-ghost{border-color:var(--foreground);background:transparent;color:var(--foreground)}
+.btn-ghost:hover{background:var(--foreground);color:var(--background)}
+.btn-inv{border-color:var(--ink-fg);background:var(--ink-fg);color:var(--ink)}
+.btn-inv:hover{border-color:var(--glass);background:var(--glass);color:var(--ink)}
+.btn-inv-ghost{border-color:oklch(0.956 0.003 220 / 40%);background:transparent;color:var(--ink-fg)}
+.btn-inv-ghost:hover{border-color:var(--ink-fg);background:var(--ink-fg);color:var(--ink)}
+.btn[disabled]{opacity:.5;cursor:not-allowed}
+
+/* header */
+header.site{position:sticky;top:env(safe-area-inset-top, 0px);z-index:50;background:var(--ink);color:var(--ink-fg)}
+.strip{border-bottom:1px solid var(--ink-line);background:var(--ink-deep)}
+.strip .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:8px;font-size:12px}
+.strip .msg{color:var(--ink-muted)}
+.strip .dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--error-soft);margin-right:8px;vertical-align:middle}
+.strip a{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;font-weight:600;color:var(--glass);flex:none}
+.strip a:hover{color:var(--ink-fg)}
+.strip .ic{width:14px;height:14px}
+.sm-only{display:none}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-block:16px}
+.brand{display:flex;align-items:center;gap:14px}
+.mark{width:40px;height:40px;flex:none}
+.wordmark{display:flex;flex-direction:column;gap:3px}
+.wordmark b{font-family:var(--display);font-size:24px;font-weight:600;line-height:1;letter-spacing:.1em}
+.wordmark small{font-size:9.5px;font-weight:500;letter-spacing:.42em;color:var(--ink-muted)}
+nav.desk{display:none;align-items:center;gap:28px;font-size:14px;font-weight:500}
+nav.desk a:not(.btn){color:var(--ink-muted);transition:color .15s}
+nav.desk a:not(.btn):hover,nav.desk a[aria-current="page"]{color:var(--ink-fg)}
+.menu-btn{display:inline-flex;width:44px;height:44px;align-items:center;justify-content:center;border:1px solid var(--ink-line);background:transparent;cursor:pointer}
+.menu-btn .ic{width:20px;height:20px}
+nav.mob{border-top:1px solid var(--ink-line)}
+nav.mob .wrap{display:flex;flex-direction:column;padding-block:12px}
+nav.mob a:not(.btn){border-bottom:1px solid var(--ink-line);padding-block:14px;font-family:var(--display);font-size:24px;color:var(--ink-fg)}
+nav.mob .btn{margin-top:16px}
+@media (min-width:640px){ .sm-only{display:inline} }
+@media (min-width:1024px){ nav.desk{display:flex} .menu-btn,nav.mob{display:none!important} }
+
+/* shared */
+.sec{padding-block:96px}
+.sec-80{padding-block:80px}
+.sec-64{padding-block:64px}
+.bb{border-bottom:1px solid var(--border)}
+.by{border-block:1px solid var(--border)}
+.bg-surface{background-color:var(--surface)}
+.head{display:flex;flex-direction:column;gap:16px;max-width:768px;margin-bottom:48px}
+.head h2,.h2{font-size:clamp(34px,4.4vw,52px)}
+.head .lede{max-width:60ch;color:var(--muted-fg)}
+.page-hero .wrap{display:flex;flex-direction:column;gap:24px;padding-block:80px}
+.page-hero h1{max-width:896px;font-size:clamp(44px,6vw,76px)}
+.page-hero .lede{max-width:62ch;font-size:18px;color:var(--muted-fg)}
+.dash li,.dash-li{position:relative;padding-left:16px}
+.dash li::before,.dash-li::before{content:"";position:absolute;left:0;top:.75em;height:1px;width:8px;background:var(--accent)}
+@media (min-width:768px){ .page-hero .wrap{padding-block:96px} }
+
+/* home */
+.hero{overflow:hidden;border-bottom:1px solid var(--border)}
+.hero .wrap{display:grid;align-items:center;gap:56px;padding-block:56px}
+.hero-copy{display:flex;flex-direction:column;gap:28px;min-width:0}
+.hero-copy h1{font-size:clamp(48px,6.4vw,86px);letter-spacing:-.005em}
+.hero-copy p{max-width:56ch;font-size:18px;color:var(--muted-fg)}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.hero-media{position:relative;min-width:0}
+.hero-media .glint img{aspect-ratio:4/3;width:100%;object-fit:cover}
+.sheet{position:absolute;bottom:-40px;left:-16px;display:none;width:58%;border:1px solid var(--border);background-color:var(--background);padding:16px;box-shadow:var(--shadow-pane)}
+.sheet svg{display:block;width:100%;height:auto}
+.caps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;font-size:14px}
+.caps li{display:flex;flex-direction:column;gap:4px;padding:24px 16px 24px 0}
+.caps b{font-family:var(--display);font-size:24px;font-weight:600}
+.caps span{color:var(--muted-fg)}
+.svc3{display:grid;gap:40px}
+.svc3 article{display:flex;flex-direction:column;gap:16px;min-width:0;border-top:2px solid var(--foreground);padding-top:24px}
+.svc3 .ic-lg{margin-top:8px}
+.svc3 h3{font-size:26px}
+.svc3 ul{display:flex;flex-direction:column;gap:6px;font-size:14px}
+.more{margin-top:auto;display:inline-flex;align-items:center;gap:8px;padding-top:8px;font-size:14px;font-weight:600;color:var(--accent);align-self:flex-start}
+.more:hover{color:var(--foreground)}
+.proc-head{display:flex;flex-direction:column;gap:16px;max-width:768px;margin-bottom:56px}
+.proc{display:grid;gap:1px;background:var(--ink-line)}
+.proc li{display:flex;flex-direction:column;gap:12px;background:var(--ink);padding:28px}
+.proc .n{font-family:var(--display);font-size:48px;font-weight:500;line-height:1;color:var(--glass)}
+.proc h3{font-size:24px}
+.proc p{font-size:14px;color:var(--ink-muted)}
+.work-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px}
+.work-head .head{margin-bottom:0}
+.work{display:grid;gap:20px;margin-top:48px}
+.work figcaption,.proj figcaption{display:flex;flex-direction:column;gap:4px;margin-top:16px}
+.work figcaption b,.proj figcaption b{font-family:var(--display);font-size:24px;font-weight:600}
+.teaser{display:grid;align-items:center;gap:48px}
+.teaser > div:first-child{display:flex;flex-direction:column;gap:20px}
+.teaser p{max-width:52ch;color:var(--muted-fg)}
+.teaser .panel{border:1px solid var(--border);background-color:var(--background);padding:24px}
+.teaser svg{display:block;width:100%;height:auto}
+.why{display:grid;gap:40px 48px}
+.why li{display:flex;gap:20px;border-top:1px solid var(--border);padding-top:24px}
+.why .ln{margin-top:8px;height:1px;width:32px;flex:none;background:var(--accent)}
+.why div{display:flex;flex-direction:column;gap:8px}
+.why b{font-family:var(--display);font-size:24px;font-weight:600;line-height:1.25}
+.why span{color:var(--muted-fg)}
+.cta .wrap{display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between;gap:32px;padding-block:80px}
+.cta .txt{display:flex;flex-direction:column;gap:16px;max-width:672px}
+.cta em{color:var(--glass)}
+.cta p{color:var(--ink-muted)}
+@media (min-width:640px){ .sheet{display:block} }
+@media (min-width:768px){
+  .hero .wrap{padding-block:80px}
+  .sheet{left:-40px}
+  .caps{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .svc3{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .proc{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .work{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .work .down{transform:translateY(40px)}
+  .teaser{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cta .wrap{flex-direction:row;align-items:flex-end}
+}
+@media (min-width:640px){ .why{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media (min-width:1024px){ .hero .wrap{grid-template-columns:1fr 1.1fr} }
+
+/* services */
+.chips{display:flex;flex-wrap:wrap;gap:8px;padding-top:8px}
+.chips a{border:1px solid oklch(0.256 0.012 237 / 30%);background:var(--background);padding:8px 16px;font-size:14px;font-weight:500}
+.chips a:hover{border-color:var(--foreground)}
+.detail{scroll-margin-top:128px;border-bottom:1px solid var(--border);padding-block:80px}
+.detail .wrap{display:grid;align-items:center;gap:48px}
+.detail .txt{display:flex;flex-direction:column;gap:20px;min-width:0}
+.detail h2{font-size:clamp(30px,3.6vw,44px)}
+.detail ul{display:grid;gap:8px;border-top:1px solid var(--border);padding-top:16px;font-size:14px}
+.faq-grid{display:grid;gap:48px}
+.faq{border-top:1px solid var(--border)}
+.faq details{border-bottom:1px solid var(--border)}
+.faq summary{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:20px;font-family:var(--display);font-size:20px;font-weight:600;cursor:pointer;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .ic{transition:transform .2s;color:var(--muted-fg)}
+.faq details[open] summary .ic{transform:rotate(180deg)}
+.faq details p{padding-bottom:16px;color:var(--muted-fg)}
+@media (min-width:640px){ .detail ul{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media (min-width:768px){ .detail .wrap{grid-template-columns:repeat(2,minmax(0,1fr))} .detail .wrap.flip .glint{order:2} .faq-grid{grid-template-columns:1fr 1.4fr} }
+
+/* projects */
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:40px}
+.tabs button{border:1px solid var(--border);background:transparent;padding:8px 16px;font-size:14px;font-weight:500;cursor:pointer;transition:background-color .15s,color .15s,border-color .15s}
+.tabs button:hover{border-color:var(--foreground)}
+.tabs button[aria-selected="true"]{border-color:var(--foreground);background:var(--foreground);color:var(--background)}
+.proj{display:grid;gap:48px 24px}
+.proj figcaption{border-top:1px solid var(--border);padding-top:16px}
+.proj figcaption small{font-size:14px;color:var(--muted-fg)}
+@media (min-width:640px){ .proj{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media (min-width:1024px){ .proj{grid-template-columns:repeat(3,minmax(0,1fr))} }
+
+/* about */
+.about{display:grid;align-items:start;gap:56px}
+.about .txt{display:flex;flex-direction:column;gap:20px;font-size:18px;color:var(--muted-fg)}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--border);font-size:16px;color:var(--foreground)}
+.two li{border-bottom:1px solid var(--border);padding-block:12px}
+.vals{display:grid;gap:1px;background:var(--border)}
+.vals li{display:flex;flex-direction:column;gap:8px;background:var(--surface);padding:24px}
+.vals b{font-family:var(--display);font-size:24px;font-weight:600;line-height:1.25}
+.vals span{font-size:14px;color:var(--muted-fg)}
+.area-grid{display:grid;gap:48px}
+.area{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-self:start;border-top:1px solid var(--border)}
+.area li{display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--border);padding-block:14px}
+.area li::before{content:"";width:6px;height:6px;background:var(--accent);flex:none}
+@media (min-width:640px){ .vals{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media (min-width:768px){ .about{grid-template-columns:1.1fr 1fr} .area-grid{grid-template-columns:1fr 1.2fr} }
+@media (min-width:1024px){ .vals{grid-template-columns:repeat(5,minmax(0,1fr))} }
+
+/* planner */
+.plan{display:grid;align-items:start;gap:40px}
+.inputs{display:flex;flex-direction:column;gap:32px;min-width:0}
+fieldset{border:0;margin:0;padding:0;min-width:0;display:flex;flex-direction:column;gap:12px}
+legend{padding:0;margin-bottom:12px}
+.choices{display:flex;flex-wrap:wrap;gap:8px}
+.choice{height:44px;border:1px solid var(--border);background:transparent;padding:0 16px;font-size:14px;font-weight:500;cursor:pointer;transition:background-color .15s,color .15s,border-color .15s}
+.choice:hover{border-color:var(--foreground)}
+.choice[aria-pressed="true"]{border-color:var(--foreground);background:var(--foreground);color:var(--background)}
+.run{display:flex;align-items:center;gap:12px}
+.run label{width:64px;flex:none;font-size:14px;font-weight:500}
+.run .in{position:relative;flex:1;min-width:0}
+.run input{height:48px;width:100%;border:1px solid var(--border);background:var(--background);padding:0 48px 0 12px;font:inherit;font-size:16px;color:var(--foreground)}
+.run input:focus{border-color:var(--accent);outline:2px solid var(--accent)}
+.run .u{pointer-events:none;position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:14px;color:var(--muted-fg)}
+.run .del{display:inline-flex;width:48px;height:48px;flex:none;align-items:center;justify-content:center;border:1px solid var(--border);background:transparent;color:var(--muted-fg);cursor:pointer}
+.run .del:hover{border-color:var(--foreground);color:var(--foreground)}
+.run .del[disabled]{opacity:.4;cursor:not-allowed}
+.sys{display:grid;gap:8px}
+.sys button{display:flex;flex-direction:column;gap:4px;border:1px solid var(--border);background:transparent;padding:16px;text-align:left;cursor:pointer;transition:background-color .15s,color .15s,border-color .15s}
+.sys button:hover{border-color:var(--foreground)}
+.sys button b{font-size:14px;font-weight:600}
+.sys button small{font-size:12px;color:var(--muted-fg)}
+.sys button[aria-pressed="true"]{border-color:var(--foreground);background:var(--foreground);color:var(--background)}
+.sys button[aria-pressed="true"] small{color:inherit;opacity:.75}
+.pair{display:grid;gap:24px}
+.result{position:sticky;top:144px;display:flex;flex-direction:column;gap:24px;padding:28px}
+.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--ink-line)}
+.stats div{display:flex;flex-direction:column;gap:4px;background:var(--ink);padding:16px}
+.stats dt{font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:var(--ink-muted)}
+.stats dd{font-family:var(--display);font-size:36px;font-weight:600;line-height:1.1;font-variant-numeric:tabular-nums}
+.runs-vis{display:flex;flex-direction:column;gap:20px;border:1px solid var(--ink-line);padding:16px}
+.rv{display:flex;flex-direction:column;gap:8px}
+.rv .lab{display:flex;justify-content:space-between;gap:12px;font-size:12px;letter-spacing:.05em;color:var(--ink-muted);font-variant-numeric:tabular-nums}
+.rv .bar2{display:flex;height:48px;gap:4px;border-bottom:4px solid var(--ink-fg)}
+.rv .pn{position:relative;flex:1;border:1px solid oklch(0.956 0.003 220 / 70%);background:oklch(0.755 0.045 207 / 15%);min-width:0}
+.rv .pn::after{content:"";position:absolute;left:20%;top:20%;height:60%;width:1px;transform:rotate(25deg);background:var(--glass)}
+.result .note{font-size:12px;color:var(--ink-muted)}
+@media (min-width:640px){ .sys{grid-template-columns:repeat(3,minmax(0,1fr))} .pair{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media (min-width:1024px){ .plan{grid-template-columns:1fr 1.15fr} }
+@media (max-width:1023px){ .result{position:static} }
+
+/* contact */
+.contact .wrap{display:grid;align-items:start;gap:56px;padding-block:80px}
+.contact .info{display:flex;flex-direction:column;gap:24px;min-width:0}
+.contact h1{font-size:clamp(44px,5.6vw,72px)}
+.contact .info > p{color:var(--ink-muted)}
+.cdl{display:flex;flex-direction:column;margin-top:8px}
+.cdl div{display:grid;grid-template-columns:120px 1fr;align-items:baseline;gap:16px;border-bottom:1px solid var(--ink-line);padding-block:16px}
+.cdl dt{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.18em;color:var(--ink-muted)}
+.cdl dt .ic{width:14px;height:14px}
+.cdl dd{font-size:16px;overflow-wrap:anywhere;user-select:all}
+.emerg{margin-top:8px;border:1px solid oklch(0.801 0.089 32 / 50%);padding:20px}
+.emerg b{font-family:var(--display);font-size:20px;font-weight:600}
+.emerg p{margin-top:4px;font-size:14px;color:var(--ink-muted)}
+.emerg strong{color:var(--glass)}
+.qform{display:flex;flex-direction:column;gap:20px;border:1px solid var(--ink-line);background:var(--ink);padding:24px;min-width:0}
+.fgrid{display:grid;gap:20px}
+.field{display:flex;flex-direction:column;gap:8px;min-width:0}
+.field label{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.14em}
+.field label .o{font-weight:400;text-transform:none;letter-spacing:normal;opacity:.7}
+.field label .r{opacity:.7}
+.field.bad label{color:var(--error-soft)}
+.fc{width:100%;min-height:48px;border:1px solid oklch(0.956 0.003 220 / 30%);border-radius:0;background:oklch(0.956 0.003 220 / 5%);padding:10px 12px;font:inherit;font-size:16px;color:var(--ink-fg)}
+.fc::placeholder{color:oklch(0.956 0.003 220 / 45%)}
+.fc:focus{border-color:var(--glass);outline:2px solid var(--glass);outline-offset:0}
+.fc option{background:var(--background);color:var(--foreground)}
+.field.bad .fc{border-color:var(--error-soft)}
+textarea.fc{resize:vertical;line-height:1.5}
+.fmsg{font-size:14px}
+.fmsg:empty{display:none}
+.fmsg.err{color:var(--error-soft)}
+.fmsg.ok{color:var(--glass)}
+@media (min-width:640px){ .fgrid{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media (min-width:768px){ .qform{padding:32px} }
+@media (min-width:1024px){ .contact .wrap{grid-template-columns:1fr 1.25fr} }
+
+/* footer */
+footer{background:var(--ink-deep);color:var(--ink-fg)}
+.fcols{display:grid;gap:48px;padding-block:64px}
+.fcols > div:first-child{display:flex;flex-direction:column;gap:20px}
+.fcols p.blurb{max-width:320px;font-size:14px;color:var(--ink-muted)}
+.fcols ul{margin-top:16px;display:flex;flex-direction:column;gap:10px;font-size:14px;color:var(--ink-muted)}
+.fcols ul a:hover{color:var(--ink-fg)}
+.fcols .area-txt{margin-top:16px;font-size:14px;line-height:1.7;color:var(--ink-muted)}
+.fbase{border-top:1px solid var(--ink-line)}
+.fbase .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;padding-block:24px;font-size:12px;color:var(--ink-muted)}
+@media (min-width:768px){ .fcols{grid-template-columns:1.3fr 1fr 1fr 1.2fr} }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.910a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></symbol>
+    <symbol id="i-ruler" viewBox="0 0 24 24"><path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z"></path><path d="m14.5 12.5 2-2"></path><path d="m11.5 9.5 2-2"></path><path d="m8.5 6.5 2-2"></path><path d="m17.5 15.5 2-2"></path></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14"></path><path d="M12 5v14"></path></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M3 6h18"></path><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16"></path><path d="M4 12h16"></path><path d="M4 18h16"></path></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"></path></symbol>
+    <symbol id="ic-store" viewBox="0 0 44 44"><rect x="4" y="6" width="36" height="32"></rect><line x1="4" y1="14" x2="40" y2="14"></line><line x1="17" y1="14" x2="17" y2="38"></line><line x1="27" y1="14" x2="27" y2="38"></line><line class="a" x1="8" y1="32" x2="13" y2="20"></line></symbol>
+    <symbol id="ic-rail" viewBox="0 0 44 44"><line x1="4" y1="10" x2="40" y2="10"></line><line x1="4" y1="38" x2="40" y2="38"></line><rect x="6" y="13" width="14" height="22"></rect><rect x="24" y="13" width="14" height="22"></rect><line class="a" x1="9" y1="31" x2="15" y2="18"></line><line class="a" x1="27" y1="31" x2="33" y2="18"></line></symbol>
+    <symbol id="ic-repair" viewBox="0 0 44 44"><rect x="6" y="6" width="32" height="32"></rect><polyline class="a" points="12,14 20,22 16,26 26,32"></polyline><line x1="26" y1="14" x2="32" y2="20"></line></symbol>
+    <symbol id="ic-part" viewBox="0 0 44 44"><line x1="4" y1="6" x2="40" y2="6"></line><line x1="4" y1="38" x2="40" y2="38"></line><line x1="14" y1="6" x2="14" y2="38"></line><line x1="30" y1="6" x2="30" y2="38"></line><line x1="26" y1="20" x2="26" y2="26"></line><line class="a" x1="18" y1="32" x2="24" y2="14"></line></symbol>
+    <symbol id="mark" viewBox="0 0 120 120"><rect x="6" y="6" width="108" height="108" fill="none" stroke="currentColor" stroke-width="5"></rect><line x1="6" y1="44" x2="114" y2="44" stroke="currentColor" stroke-width="5"></line><line x1="60" y1="44" x2="60" y2="114" stroke="currentColor" stroke-width="5"></line><line x1="74" y1="100" x2="100" y2="60" stroke="oklch(0.755 0.045 207)" stroke-width="3" stroke-linecap="round"></line></symbol>
+  </defs>
+</svg>
+
+<header class="site">
+  <div class="strip">
+    <div class="wrap">
+      <span class="msg"><span class="dot"></span>Broken <span class="sm-only">storefront </span>glass? Emergency board-up<span class="sm-only"> available</span>.</span>
+      <a href="tel:+17783024774"><svg class="ic" aria-hidden="true"><use href="#i-phone"></use></svg>778-302-4774</a>
+    </div>
+  </div>
+  <div class="wrap bar">
+    <a class="brand" href="#home" aria-label="TrueWest Glass &amp; Aluminum, home">
+      <svg class="mark" aria-hidden="true"><use href="#mark"></use></svg>
+      <span class="wordmark"><b>TRUEWEST</b><small>GLASS &amp; ALUMINUM</small></span>
+    </a>
+    <nav class="desk" aria-label="Main">
+      <a href="#services" data-nav="services">Services</a>
+      <a href="#projects" data-nav="projects">Projects</a>
+      <a href="#railing-planner" data-nav="railing-planner">Railing planner</a>
+      <a href="#about" data-nav="about">About</a>
+      <a href="#contact" data-nav="contact">Contact</a>
+      <a class="btn btn-inv" href="#contact">Request a quote</a>
+    </nav>
+    <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu"><svg class="ic" aria-hidden="true"><use href="#i-menu"></use></svg></button>
+  </div>
+  <nav class="mob" id="mobile-nav" aria-label="Mobile" hidden>
+    <div class="wrap">
+      <a href="#services">Services</a><a href="#projects">Projects</a><a href="#railing-planner">Railing planner</a><a href="#about">About</a><a href="#contact">Contact</a>
+      <a class="btn btn-inv" href="#contact">Request a quote</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+<!-- ============ HOME ============ -->
+<div data-view="home">
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-copy fade-up">
+        <span class="eyebrow">Commercial glazing · Metro Vancouver</span>
+        <h1>Storefronts, railings and glass, <em class="t-accent">built right.</em></h1>
+        <p>TrueWest designs, supplies and installs commercial glass and aluminum systems across the Lower Mainland. Storefronts and entrances, glass railings, and fast repair and service.</p>
+        <div class="actions"><a class="btn btn-brand" href="#contact">Request a quote</a><a class="btn btn-ghost" href="#services">See our services</a></div>
+      </div>
+      <div class="hero-media">
+        <div class="glint shadow-pane"><img src="images/hero-storefront.jpg" alt="Aluminum storefront with glass entrance on a rainy evening, North Shore mountains behind" width="1600" height="1072" fetchpriority="high"></div>
+        <figure class="sheet blueprint">
+          <svg viewBox="0 0 600 380" role="img" aria-label="Line drawing of an aluminum storefront elevation with a centre door, transom and dimension lines">
+            <g fill="none" stroke="oklch(0.256 0.012 237)">
+              <rect x="30" y="20" width="500" height="290" stroke-width="4"></rect>
+              <line x1="30" y1="80" x2="530" y2="80" stroke-width="3"></line>
+              <line x1="180" y1="80" x2="180" y2="310" stroke-width="3"></line>
+              <line x1="330" y1="80" x2="330" y2="310" stroke-width="3"></line>
+              <line x1="430" y1="80" x2="430" y2="310" stroke-width="3"></line>
+              <line x1="105" y1="20" x2="105" y2="80" stroke-width="1.5"></line>
+              <line x1="255" y1="20" x2="255" y2="80" stroke-width="1.5"></line>
+              <line x1="380" y1="20" x2="380" y2="80" stroke-width="1.5"></line>
+              <line x1="480" y1="20" x2="480" y2="80" stroke-width="1.5"></line>
+              <rect x="340" y="90" width="80" height="210" stroke-width="1.2"></rect>
+              <line x1="410" y1="170" x2="410" y2="232" stroke-width="3.5"></line>
+            </g>
+            <g fill="none" stroke="oklch(0.553 0.05 208)" stroke-linecap="round" stroke-width="2">
+              <line class="draw-in" x1="60" y1="282" x2="125" y2="152"></line>
+              <line class="draw-in" x1="84" y1="292" x2="140" y2="182"></line>
+              <line class="draw-in" x1="450" y1="272" x2="505" y2="170"></line>
+            </g>
+            <g fill="none" stroke="oklch(0.494 0.016 241)" stroke-width="1">
+              <line x1="330" y1="336" x2="430" y2="336"></line><line x1="330" y1="328" x2="330" y2="344"></line><line x1="430" y1="328" x2="430" y2="344"></line>
+              <line x1="560" y1="20" x2="560" y2="310"></line><line x1="552" y1="20" x2="568" y2="20"></line><line x1="552" y1="310" x2="568" y2="310"></line>
+            </g>
+            <g fill="oklch(0.494 0.016 241)" font-size="11" letter-spacing="0.08em" font-family="Inter, system-ui, sans-serif">
+              <text x="380" y="360" text-anchor="middle">914</text>
+              <text x="582" y="165" text-anchor="middle" transform="rotate(-90 582 165)">3050</text>
+              <text x="30" y="360">STOREFRONT ELEVATION · MM</text>
+            </g>
+          </svg>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="bb bg-surface">
+    <ul class="wrap caps">
+      <li><b>In-house</b><span>Site measure &amp; shop drawings</span></li>
+      <li><b>Commercial</b><span>Retail, office, strata &amp; mixed-use</span></li>
+      <li><b>Emergency</b><span>Board-up when a break can't wait</span></li>
+      <li><b>10+ cities</b><span>Across the Lower Mainland</span></li>
+    </ul>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="head"><span class="eyebrow">What we do</span><h2>Three trades, one crew</h2></div>
+      <div class="svc3">
+        <article class="group">
+          <div class="glint r43 zoom"><img class="cover" src="images/restaurant-storefront.jpg" alt="" loading="lazy" width="1200" height="912"></div>
+          <svg class="ic-lg" aria-hidden="true"><use href="#ic-store"></use></svg>
+          <h3>Commercial storefronts &amp; entrances</h3>
+          <p class="muted">Aluminum-framed storefronts, all-glass entrances, curtain wall and interior glass partitions for retail, restaurant, office and mixed-use buildings.</p>
+          <ul class="dash"><li>Site measure and shop drawings</li><li>Supply and fabrication coordination</li><li>Installation and sign-off</li></ul>
+          <a class="more" href="#services" data-scroll="storefronts">Learn more <svg class="ic" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+        </article>
+        <article class="group">
+          <div class="glint r43 zoom"><img class="cover" src="images/glass-railing.jpg" alt="" loading="lazy" width="1200" height="912"></div>
+          <svg class="ic-lg" aria-hidden="true"><use href="#ic-rail"></use></svg>
+          <h3>Glass railings &amp; decks</h3>
+          <p class="muted">Frameless and post-mounted glass railings for balconies, rooftop decks, stairs and pool areas. Clean sightlines, built to BC Building Code requirements.</p>
+          <ul class="dash"><li>Balconies and rooftop decks</li><li>Stair and landing guards</li><li>Pool enclosures</li></ul>
+          <a class="more" href="#services" data-scroll="railings">Learn more <svg class="ic" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+        </article>
+        <article class="group">
+          <div class="glint r43 zoom"><img class="cover" src="images/door-service.jpg" alt="" loading="lazy" width="1200" height="912"></div>
+          <svg class="ic-lg" aria-hidden="true"><use href="#ic-repair"></use></svg>
+          <h3>Repair &amp; service</h3>
+          <p class="muted">Broken glass replacement, door closers and hardware, storefront door adjustments, failed sealed units, and emergency board-up when a break can't wait.</p>
+          <ul class="dash"><li>Emergency board-up</li><li>Sealed unit replacement</li><li>Service plans for multi-site properties</li></ul>
+          <a class="more" href="#services" data-scroll="repair">Learn more <svg class="ic" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="ink blueprint-ink sec">
+    <div class="wrap">
+      <div class="proc-head"><span class="eyebrow">How we work</span><h2 class="h2">From first measure to final sign-off</h2></div>
+      <ol class="proc">
+        <li><span class="n">01</span><h3>Site measure</h3><p>We visit, measure and talk through the scope, schedule and site conditions.</p></li>
+        <li><span class="n">02</span><h3>Shop drawings</h3><p>Elevations and details for your sign-off before anything is ordered.</p></li>
+        <li><span class="n">03</span><h3>Fabrication</h3><p>Glass and aluminum ordered and coordinated to your construction schedule.</p></li>
+        <li><span class="n">04</span><h3>Install &amp; sign-off</h3><p>Clean, protected installation, walk-through and warranty documentation.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="work-head">
+        <div class="head"><span class="eyebrow">Our work</span><h2>The kind of work we do</h2></div>
+        <a class="btn btn-ghost" href="#projects">View all projects</a>
+      </div>
+      <div class="work">
+        <figure><div class="glint r45"><img class="cover" src="images/office-partitions.jpg" alt="Office glass partitions" loading="lazy" width="1200" height="912"></div><figcaption><span class="eyebrow">Interiors</span><b>Office glass partitions</b></figcaption></figure>
+        <figure class="down"><div class="glint r45"><img class="cover" src="images/restaurant-storefront.jpg" alt="Restaurant entrance" loading="lazy" width="1200" height="912"></div><figcaption><span class="eyebrow">Storefronts</span><b>Restaurant entrance</b></figcaption></figure>
+        <figure><div class="glint r45"><img class="cover" src="images/pool-railing.jpg" alt="Pool enclosure &amp; stair guard" loading="lazy" width="1200" height="912"></div><figcaption><span class="eyebrow">Railings</span><b>Pool enclosure &amp; stair guard</b></figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="by bg-surface sec-80">
+    <div class="wrap teaser">
+      <div>
+        <span class="eyebrow">Free tool</span>
+        <h2 class="h2">Plan your glass railing in a minute</h2>
+        <p>Enter your deck or balcony runs and see roughly how many glass panels you'll need, how wide they'll be, and what hardware goes with them. Send the result straight to us for a quote.</p>
+        <a class="btn btn-brand" href="#railing-planner" style="align-self:flex-start"><svg class="ic" aria-hidden="true"><use href="#i-ruler"></use></svg> Open the railing planner</a>
+      </div>
+      <div class="panel blueprint">
+        <svg viewBox="0 0 520 200" role="img" aria-label="Drawing of a five-panel glass railing with dimension line">
+          <line x1="10" y1="150" x2="510" y2="150" stroke="oklch(0.256 0.012 237)" stroke-width="4"></line>
+          <g fill="oklch(0.553 0.05 208 / 10%)" stroke="oklch(0.256 0.012 237)" stroke-width="1.5">
+            <rect x="20" y="40" width="90" height="106"></rect><rect x="118" y="40" width="90" height="106"></rect><rect x="216" y="40" width="90" height="106"></rect><rect x="314" y="40" width="90" height="106"></rect><rect x="412" y="40" width="90" height="106"></rect>
+          </g>
+          <g stroke="oklch(0.553 0.05 208)" stroke-width="2" stroke-linecap="round">
+            <line class="draw-in" x1="38" y1="128" x2="64" y2="62"></line><line class="draw-in" x1="136" y1="128" x2="162" y2="62"></line><line class="draw-in" x1="234" y1="128" x2="260" y2="62"></line><line class="draw-in" x1="332" y1="128" x2="358" y2="62"></line><line class="draw-in" x1="430" y1="128" x2="456" y2="62"></line>
+          </g>
+          <g stroke="oklch(0.494 0.016 241)" stroke-width="1"><line x1="20" y1="176" x2="500" y2="176"></line><line x1="20" y1="168" x2="20" y2="184"></line><line x1="500" y1="168" x2="500" y2="184"></line></g>
+          <text x="260" y="196" text-anchor="middle" fill="oklch(0.494 0.016 241)" font-size="11" letter-spacing="0.08em" font-family="Inter, system-ui, sans-serif">6000 · 5 PANELS @ 1166</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="head"><span class="eyebrow">Why TrueWest</span><h2>What you can expect from us</h2></div>
+      <ul class="why">
+        <li><span class="ln" aria-hidden="true"></span><div><b>Straight answers</b><span>Clear quotes, realistic schedules, and one point of contact from estimate to sign-off.</span></div></li>
+        <li><span class="ln" aria-hidden="true"></span><div><b>Built for the West Coast</b><span>Systems and sealants chosen for rain, wind and coastal conditions.</span></div></li>
+        <li><span class="ln" aria-hidden="true"></span><div><b>Clean installs</b><span>Tidy sites, careful protection of finished work, and crews that respect occupied buildings.</span></div></li>
+        <li><span class="ln" aria-hidden="true"></span><div><b>We stand behind it</b><span>Workmanship warranty on every installation, plus responsive after-sales service.</span></div></li>
+      </ul>
+    </div>
+  </section>
+</div>
+
+<!-- ============ SERVICES ============ -->
+<div data-view="services" hidden>
+  <section class="page-hero blueprint bb bg-surface">
+    <div class="wrap fade-up">
+      <span class="eyebrow">Services</span>
+      <h1>Glass and aluminum, <em class="t-accent">start to finish.</em></h1>
+      <p class="lede">One crew for storefronts, railings, interior glass and service, so you're not juggling trades.</p>
+      <nav class="chips" aria-label="Services">
+        <a href="#services" data-scroll="storefronts">Storefronts &amp; entrances</a>
+        <a href="#services" data-scroll="railings">Glass railings &amp; decks</a>
+        <a href="#services" data-scroll="interiors">Interior glass</a>
+        <a href="#services" data-scroll="repair">Repair &amp; service</a>
+      </nav>
+    </div>
+  </section>
+  <section class="detail" id="storefronts">
+    <div class="wrap">
+      <div class="glint"><img class="r43 cover" src="images/restaurant-storefront.jpg" alt="Storefronts &amp; entrances" loading="lazy" width="1200" height="912"></div>
+      <div class="txt">
+        <svg class="ic-lg" aria-hidden="true"><use href="#ic-store"></use></svg>
+        <span class="eyebrow">Storefronts &amp; entrances</span>
+        <h2>Commercial storefronts that look sharp and stay sealed</h2>
+        <p class="muted">Aluminum-framed storefronts, all-glass entrances and curtain wall for retail, restaurant, office and mixed-use buildings. We handle measure, shop drawings, supply coordination and installation.</p>
+        <ul class="dash"><li>Thermally broken and standard aluminum storefront</li><li>All-glass and aluminum entrance doors</li><li>Window wall and curtain wall</li><li>Tenant fit-outs and façade upgrades</li></ul>
+        <a class="btn btn-brand" href="#contact" data-service="Storefront or entrance" style="align-self:flex-start">Quote this service</a>
+      </div>
+    </div>
+  </section>
+  <section class="detail" id="railings">
+    <div class="wrap flip">
+      <div class="glint"><img class="r43 cover" src="images/pool-railing.jpg" alt="Glass railings &amp; decks" loading="lazy" width="1200" height="912"></div>
+      <div class="txt">
+        <svg class="ic-lg" aria-hidden="true"><use href="#ic-rail"></use></svg>
+        <span class="eyebrow">Glass railings &amp; decks</span>
+        <h2>Clean sightlines for balconies, decks, stairs and pools</h2>
+        <p class="muted">Frameless base-shoe, spigot and post-mounted glass railings, built to BC Building Code requirements. Ideal for strata, multi-unit residential and high-end homes.</p>
+        <ul class="dash"><li>Balconies and rooftop decks</li><li>Stair and landing guards</li><li>Pool enclosures</li><li>Privacy and wind screens</li></ul>
+        <a class="btn btn-brand" href="#contact" data-service="Glass railing or deck" style="align-self:flex-start">Quote this service</a>
+      </div>
+    </div>
+  </section>
+  <section class="detail" id="interiors">
+    <div class="wrap">
+      <div class="glint"><img class="r43 cover" src="images/office-partitions.jpg" alt="Interior glass" loading="lazy" width="1200" height="912"></div>
+      <div class="txt">
+        <svg class="ic-lg" aria-hidden="true"><use href="#ic-part"></use></svg>
+        <span class="eyebrow">Interior glass</span>
+        <h2>Glass partitions that open up an office</h2>
+        <p class="muted">Slim-frame and frameless partitions, glass meeting rooms and doors that bring daylight deeper into a floor plate while keeping sound and privacy where you need it.</p>
+        <ul class="dash"><li>Demountable and fixed partitions</li><li>Glass doors and sliders</li><li>Frosted and decorative film</li><li>Glass guards and feature walls</li></ul>
+        <a class="btn btn-brand" href="#contact" data-service="Interior glass partitions" style="align-self:flex-start">Quote this service</a>
+      </div>
+    </div>
+  </section>
+  <section class="detail" id="repair">
+    <div class="wrap flip">
+      <div class="glint"><img class="r43 cover" src="images/door-service.jpg" alt="Repair &amp; service" loading="lazy" width="1200" height="912"></div>
+      <div class="txt">
+        <svg class="ic-lg" aria-hidden="true"><use href="#ic-repair"></use></svg>
+        <span class="eyebrow">Repair &amp; service</span>
+        <h2>Fast repair when glass breaks or doors stop working</h2>
+        <p class="muted">Broken glass replacement, door closers and hardware, storefront door adjustments, failed sealed units, and emergency board-up when a break can't wait.</p>
+        <ul class="dash"><li>Emergency board-up</li><li>Sealed unit (foggy window) replacement</li><li>Door closers, pivots and locks</li><li>Service plans for multi-site properties</li></ul>
+        <a class="btn btn-brand" href="#contact" data-service="Repair or service" style="align-self:flex-start">Quote this service</a>
+      </div>
+    </div>
+  </section>
+  <section class="sec">
+    <div class="wrap faq-grid">
+      <div class="head"><span class="eyebrow">FAQ</span><h2>Common questions</h2></div>
+      <div class="faq" id="faq">
+        <details><summary>Do you work on residential projects?<svg class="ic" aria-hidden="true"><use href="#i-chev"></use></svg></summary><p>Our focus is commercial and multi-unit work, but we do glass railings and select residential projects. Send us the details and we'll let you know.</p></details>
+        <details><summary>How fast can you board up a broken storefront?<svg class="ic" aria-hidden="true"><use href="#i-chev"></use></svg></summary><p>Call 778-302-4774 right away. We prioritize emergency board-up calls and will give you a realistic arrival time on the phone.</p></details>
+        <details><summary>Can you work from architectural drawings?<svg class="ic" aria-hidden="true"><use href="#i-chev"></use></svg></summary><p>Yes. Send drawings or specs with your quote request. We prepare shop drawings for review before anything is ordered.</p></details>
+        <details><summary>Are your glass railings code compliant?<svg class="ic" aria-hidden="true"><use href="#i-chev"></use></svg></summary><p>Railings are designed and installed to meet BC Building Code guard requirements for the location. We confirm heights and loads at site measure.</p></details>
+        <details><summary>What areas do you serve?<svg class="ic" aria-hidden="true"><use href="#i-chev"></use></svg></summary><p>Vancouver, Burnaby, Richmond, Surrey, the North Shore, Coquitlam, New Westminster, Delta, Langley and the surrounding Lower Mainland.</p></details>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ PROJECTS ============ -->
+<div data-view="projects" hidden>
+  <section class="page-hero blueprint bb bg-surface">
+    <div class="wrap fade-up">
+      <span class="eyebrow">Projects</span>
+      <h1>Clean lines, <em class="t-accent">solid workmanship.</em></h1>
+      <p class="lede">Storefronts, railings, interior glass and service work across the Lower Mainland.</p>
+    </div>
+  </section>
+  <section class="sec-64">
+    <div class="wrap">
+      <div class="tabs" role="tablist" aria-label="Filter projects">
+        <button type="button" role="tab" aria-selected="true" data-filter="All">All</button>
+        <button type="button" role="tab" aria-selected="false" data-filter="Storefronts">Storefronts</button>
+        <button type="button" role="tab" aria-selected="false" data-filter="Railings">Railings</button>
+        <button type="button" role="tab" aria-selected="false" data-filter="Interiors">Interiors</button>
+        <button type="button" role="tab" aria-selected="false" data-filter="Service">Service</button>
+      </div>
+      <div class="proj" id="proj">
+        <figure class="group fade-up" data-cat="Storefronts"><div class="glint r43 zoom"><img class="cover" src="images/hero-storefront.jpg" alt="Waterfront café storefront" loading="lazy"></div><figcaption><span class="eyebrow">Storefronts</span><b>Waterfront café storefront</b><small>Aluminum storefront, centre-pivot entrance, transoms</small></figcaption></figure>
+        <figure class="group fade-up" data-cat="Railings"><div class="glint r43 zoom"><img class="cover" src="images/glass-railing.jpg" alt="Rooftop deck railing" loading="lazy"></div><figcaption><span class="eyebrow">Railings</span><b>Rooftop deck railing</b><small>Frameless base-shoe glass guard</small></figcaption></figure>
+        <figure class="group fade-up" data-cat="Interiors"><div class="glint r43 zoom"><img class="cover" src="images/office-partitions.jpg" alt="Office glass partitions" loading="lazy"></div><figcaption><span class="eyebrow">Interiors</span><b>Office glass partitions</b><small>Slim-frame partitions and glass meeting-room doors</small></figcaption></figure>
+        <figure class="group fade-up" data-cat="Storefronts"><div class="glint r43 zoom"><img class="cover" src="images/restaurant-storefront.jpg" alt="Restaurant entrance" loading="lazy"></div><figcaption><span class="eyebrow">Storefronts</span><b>Restaurant entrance</b><small>Double-door entrance and full-height glazing</small></figcaption></figure>
+        <figure class="group fade-up" data-cat="Railings"><div class="glint r43 zoom"><img class="cover" src="images/pool-railing.jpg" alt="Pool enclosure &amp; stair guard" loading="lazy"></div><figcaption><span class="eyebrow">Railings</span><b>Pool enclosure &amp; stair guard</b><small>Spigot-mounted pool fence and stair railing</small></figcaption></figure>
+        <figure class="group fade-up" data-cat="Storefronts"><div class="glint r43 zoom"><img class="cover" src="images/curtain-wall.jpg" alt="Mixed-use glazing" loading="lazy"></div><figcaption><span class="eyebrow">Storefronts</span><b>Mixed-use glazing</b><small>Window wall and balcony glass</small></figcaption></figure>
+        <figure class="group fade-up" data-cat="Service"><div class="glint r43 zoom"><img class="cover" src="images/glazier-install.jpg" alt="Storefront reglaze" loading="lazy"></div><figcaption><span class="eyebrow">Service</span><b>Storefront reglaze</b><small>Panel replacement on an existing aluminum frame</small></figcaption></figure>
+        <figure class="group fade-up" data-cat="Service"><div class="glint r43 zoom"><img class="cover" src="images/door-service.jpg" alt="Door hardware service" loading="lazy"></div><figcaption><span class="eyebrow">Service</span><b>Door hardware service</b><small>Closer replacement and door adjustment</small></figcaption></figure>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ RAILING PLANNER ============ -->
+<div data-view="railing-planner" hidden>
+  <section class="page-hero blueprint bb bg-surface">
+    <div class="wrap fade-up">
+      <span class="eyebrow">Free tool</span>
+      <h1>Glass railing <em class="t-accent">planner.</em></h1>
+      <p class="lede">Enter each straight run of your deck, balcony or stair. We'll estimate the panels and hardware. Final layout is confirmed at site measure.</p>
+    </div>
+  </section>
+  <section class="sec-64">
+    <div class="wrap plan">
+      <div class="inputs">
+        <fieldset><legend class="eyebrow">1 · Units</legend>
+          <div class="choices" data-group="unit"><button class="choice" type="button" aria-pressed="true" data-v="m">Metres</button><button class="choice" type="button" aria-pressed="false" data-v="ft">Feet</button></div>
+        </fieldset>
+        <fieldset><legend class="eyebrow">2 · Railing runs</legend>
+          <div id="runs" style="display:flex;flex-direction:column;gap:12px"></div>
+          <button class="btn btn-ghost" type="button" id="add-run" style="align-self:flex-start"><svg class="ic" aria-hidden="true"><use href="#i-plus"></use></svg> Add a run</button>
+        </fieldset>
+        <fieldset><legend class="eyebrow">3 · System</legend>
+          <div class="sys" data-group="system">
+            <button type="button" aria-pressed="true" data-v="base-shoe"><b>Base shoe (frameless)</b><small>Continuous aluminum channel, cleanest look.</small></button>
+            <button type="button" aria-pressed="false" data-v="spigot"><b>Spigot clamps</b><small>Stainless spigots, popular for pools and decks.</small></button>
+            <button type="button" aria-pressed="false" data-v="post"><b>Post-mounted</b><small>Aluminum posts with glass infill panels.</small></button>
+          </div>
+        </fieldset>
+        <div class="pair">
+          <fieldset><legend class="eyebrow">4 · Max panel width</legend>
+            <div class="choices" data-group="max"><button class="choice" type="button" aria-pressed="false" data-v="900">900 mm</button><button class="choice" type="button" aria-pressed="false" data-v="1000">1000 mm</button><button class="choice" type="button" aria-pressed="true" data-v="1200">1200 mm</button><button class="choice" type="button" aria-pressed="false" data-v="1500">1500 mm</button></div>
+          </fieldset>
+          <fieldset><legend class="eyebrow">5 · Height</legend>
+            <div class="choices" data-group="height"><button class="choice" type="button" aria-pressed="false" data-v="36 in (915 mm)">36 in (915 mm)</button><button class="choice" type="button" aria-pressed="true" data-v="42 in (1070 mm)">42 in (1070 mm)</button></div>
+          </fieldset>
+        </div>
+      </div>
+      <aside class="result ink" aria-live="polite">
+        <span class="eyebrow">Your estimate</span>
+        <p id="r-empty" class="note" style="font-size:16px" hidden>Enter at least one run of 0.3 m or longer.</p>
+        <div id="r-body" style="display:flex;flex-direction:column;gap:24px">
+          <dl class="stats" id="r-stats"></dl>
+          <div class="runs-vis blueprint-ink" id="r-runs"></div>
+          <p class="note">Planning estimate only. Panel sizes, hardware and code requirements are confirmed by TrueWest at site measure.</p>
+          <a class="btn btn-inv" href="#contact" id="send-est">Send this to TrueWest for a quote</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+</div>
+
+<!-- ============ ABOUT ============ -->
+<div data-view="about" hidden>
+  <section class="page-hero blueprint bb bg-surface">
+    <div class="wrap fade-up">
+      <span class="eyebrow">About TrueWest</span>
+      <h1>A glazing crew that shows up <em class="t-accent">when it says it will.</em></h1>
+    </div>
+  </section>
+  <section class="sec-80">
+    <div class="wrap about">
+      <div class="txt">
+        <p>We work where building owners, contractors and property managers need clean lines and solid workmanship, from a single tenant fit-out to a multi-unit residential build.</p>
+        <p>Based in North Vancouver, we scale the crew to the job and keep one point of contact from the first site measure to final sign-off.</p>
+        <div style="margin-top:24px">
+          <span class="eyebrow">Who we work with</span>
+          <ul class="two" style="margin-top:16px"><li>General contractors</li><li>Developers</li><li>Architects &amp; designers</li><li>Strata councils</li><li>Property managers</li><li>Business owners</li></ul>
+        </div>
+      </div>
+      <div class="glint shadow-pane"><img class="r45 cover" src="images/glazier-install.jpg" alt="TrueWest glazier setting a glass panel with suction lifters" loading="lazy" width="1200" height="912"></div>
+    </div>
+  </section>
+  <section class="by bg-surface sec-80">
+    <div class="wrap">
+      <div class="head"><span class="eyebrow">Our standards</span><h2>What you can expect from us</h2></div>
+      <ul class="vals">
+        <li><b>Straight answers</b><span>Clear quotes, realistic schedules, and one point of contact from estimate to sign-off.</span></li>
+        <li><b>Built for the West Coast</b><span>Systems and sealants chosen for rain, wind and coastal conditions.</span></li>
+        <li><b>Clean installs</b><span>Tidy sites, careful protection of finished work, and crews that respect occupied buildings.</span></li>
+        <li><b>We stand behind it</b><span>Workmanship warranty on every installation, plus responsive after-sales service.</span></li>
+        <li><b>Fully covered</b><span>WorkSafeBC registered and fully insured.</span></li>
+      </ul>
+    </div>
+  </section>
+  <section class="sec-80">
+    <div class="wrap area-grid">
+      <div class="head"><span class="eyebrow">Service area</span><h2>Across the Lower Mainland</h2><p class="lede">Plus the surrounding Lower Mainland. Ask us about projects outside this area.</p></div>
+      <ul class="area"><li>Vancouver</li><li>Burnaby</li><li>Richmond</li><li>Surrey</li><li>North Vancouver</li><li>West Vancouver</li><li>Coquitlam</li><li>New Westminster</li><li>Delta</li><li>Langley</li></ul>
+    </div>
+  </section>
+</div>
+
+<!-- ============ CONTACT ============ -->
+<div data-view="contact" hidden>
+  <section class="contact ink blueprint-ink">
+    <div class="wrap">
+      <div class="info">
+        <span class="eyebrow">Get in touch</span>
+        <h1>Tell us about your project</h1>
+        <p>Planning a storefront, a railing, or need a repair? Fill in the form with your contact details and the job, and we'll come back with a clear quote.</p>
+        <dl class="cdl">
+          <div><dt><svg class="ic" aria-hidden="true"><use href="#i-phone"></use></svg> Phone</dt><dd>778-302-4774</dd></div>
+          <div><dt><svg class="ic" aria-hidden="true"><use href="#i-mail"></use></svg> Email</dt><dd>info@truewestglass.com</dd></div>
+          <div><dt><svg class="ic" aria-hidden="true"><use href="#i-pin"></use></svg> Office</dt><dd>630 Roche Point Dr, North Vancouver, BC</dd></div>
+          <div><dt><svg class="ic" aria-hidden="true"><use href="#i-clock"></use></svg> Hours</dt><dd>Mon–Fri, 7:00 am – 5:00 pm</dd></div>
+        </dl>
+        <div class="emerg"><b>Emergency board-up</b><p>Broken storefront glass? Don't wait on a form. Call us directly at <strong>778-302-4774</strong>.</p></div>
+      </div>
+      <form class="qform" id="quote-form" novalidate>
+        <div class="fgrid">
+          <div class="field"><label for="q-name">Full name <span class="r">*</span></label><input class="fc" id="q-name" name="name" autocomplete="name" required></div>
+          <div class="field"><label for="q-company">Company <span class="o">(optional)</span></label><input class="fc" id="q-company" name="company" autocomplete="organization"></div>
+          <div class="field"><label for="q-phone">Phone <span class="r">*</span></label><input class="fc" id="q-phone" name="phone" type="tel" autocomplete="tel" required></div>
+          <div class="field"><label for="q-email">Email <span class="r">*</span></label><input class="fc" id="q-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="q-service">Service <span class="r">*</span></label>
+            <select class="fc" id="q-service" name="service" required><option value="">Choose one</option><option>Storefront or entrance</option><option>Glass railing or deck</option><option>Interior glass partitions</option><option>Repair or service</option><option>Emergency board-up</option><option>Something else</option></select></div>
+          <div class="field"><label for="q-city">Project city <span class="r">*</span></label><input class="fc" id="q-city" name="city" autocomplete="address-level2" required></div>
+          <div class="field"><label for="q-timeline">Timeline <span class="o">(optional)</span></label>
+            <select class="fc" id="q-timeline" name="timeline"><option value="">Not sure yet</option><option>As soon as possible</option><option>Within 1 month</option><option>1–3 months</option><option>3+ months / tendering</option></select></div>
+          <div class="field"><label for="q-contact">Best way to reach you</label>
+            <select class="fc" id="q-contact" name="contactPref"><option>Phone</option><option>Email</option><option>Either</option></select></div>
+        </div>
+        <div class="field"><label for="q-details">Project details <span class="r">*</span></label><textarea class="fc" id="q-details" name="details" rows="6" required placeholder="What needs doing, rough sizes, and when you need it"></textarea></div>
+        <p class="fmsg" id="q-msg" role="status" aria-live="polite"></p>
+        <button class="btn btn-inv" type="submit" id="q-submit" style="align-self:flex-start">Send request</button>
+      </form>
+    </div>
+  </section>
+</div>
+</main>
+
+<section class="cta ink blueprint-ink" id="cta">
+  <div class="wrap">
+    <div class="txt">
+      <span class="eyebrow">Start a project</span>
+      <h2 class="h2">Send us the job. <em>We'll send a clear quote.</em></h2>
+      <p>Drawings, photos or a rough idea all work. Call 778-302-4774 or request a quote online.</p>
+    </div>
+    <div class="actions"><a class="btn btn-inv" href="#contact">Request a quote</a><a class="btn btn-inv-ghost" href="tel:+17783024774">Call 778-302-4774</a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap fcols">
+    <div>
+      <a class="brand" href="#home" aria-label="TrueWest Glass &amp; Aluminum, home"><svg class="mark" aria-hidden="true"><use href="#mark"></use></svg><span class="wordmark"><b>TRUEWEST</b><small>GLASS &amp; ALUMINUM</small></span></a>
+      <p class="blurb">Commercial glass and aluminum systems across Metro Vancouver and the Lower Mainland.</p>
+    </div>
+    <div><p class="eyebrow glass">Explore</p><ul><li><a href="#services">Services</a></li><li><a href="#projects">Projects</a></li><li><a href="#railing-planner">Railing planner</a></li><li><a href="#about">About</a></li><li><a href="#contact">Request a quote</a></li></ul></div>
+    <div><p class="eyebrow glass">Contact</p><ul><li>778-302-4774</li><li style="overflow-wrap:anywhere">info@truewestglass.com</li><li>630 Roche Point Dr, North Vancouver, BC</li><li>Mon–Fri, 7:00 am – 5:00 pm</li></ul></div>
+    <div><p class="eyebrow glass">Service area</p><p class="area-txt">Vancouver · Burnaby · Richmond · Surrey · North Vancouver · West Vancouver · Coquitlam · New Westminster · Delta · Langley</p></div>
+  </div>
+  <div class="fbase"><div class="wrap"><span>© 2026 TrueWest Glass &amp; Aluminum</span><span>Commercial glass &amp; aluminum · Metro Vancouver, BC</span></div></div>
+</footer>
+
+<script>
+(function(){
+  var VIEWS=['home','services','projects','railing-planner','about','contact'];
+  var TITLES={home:'TrueWest Glass & Aluminum | Storefronts & Glass Railings, Vancouver',services:'Services · TrueWest','projects':'Projects · TrueWest','railing-planner':'Railing planner · TrueWest',about:'About · TrueWest',contact:'Request a quote · TrueWest'};
+  var NO_CTA={'railing-planner':1,contact:1};
+  var pending=null;
+  var menuBtn=document.getElementById('menu-btn'), mob=document.getElementById('mobile-nav');
+  function closeMenu(){ mob.hidden=true; menuBtn.setAttribute('aria-expanded','false'); menuBtn.setAttribute('aria-label','Open menu'); menuBtn.querySelector('use').setAttribute('href','#i-menu'); }
+  menuBtn.addEventListener('click',function(){ var open=mob.hidden; mob.hidden=!open; menuBtn.setAttribute('aria-expanded',open?'true':'false'); menuBtn.setAttribute('aria-label',open?'Close menu':'Open menu'); menuBtn.querySelector('use').setAttribute('href',open?'#i-x':'#i-menu'); });
+
+  function route(){
+    var h=(location.hash||'').slice(1), v=VIEWS.indexOf(h)>-1?h:'home';
+    document.querySelectorAll('[data-view]').forEach(function(el){ el.hidden=el.getAttribute('data-view')!==v; });
+    document.querySelectorAll('[data-nav]').forEach(function(a){ if(a.getAttribute('data-nav')===v) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current'); });
+    document.getElementById('cta').hidden=!!NO_CTA[v];
+    document.title=TITLES[v]; closeMenu();
+    var t=pending&&document.getElementById(pending); pending=null;
+    if(t){ requestAnimationFrame(function(){ t.scrollIntoView({block:'start'}); }); } else { window.scrollTo(0,0); }
+  }
+  window.addEventListener('hashchange',route);
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a[href^="#"]'); if(!a) return;
+    var svc=a.getAttribute('data-service'); if(svc) document.getElementById('q-service').value=svc;
+    var s=a.getAttribute('data-scroll'); if(s) pending=s;
+    var target=a.getAttribute('href').slice(1);
+    if(location.hash==='#'+target || (target==='home' && !location.hash)){ e.preventDefault(); route(); }
+  });
+
+  /* FAQ: one open at a time */
+  var faqs=document.querySelectorAll('#faq details');
+  faqs.forEach(function(d){ d.addEventListener('toggle',function(){ if(d.open) faqs.forEach(function(o){ if(o!==d) o.open=false; }); }); });
+
+  /* project filter */
+  document.querySelectorAll('[data-filter]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var f=b.getAttribute('data-filter');
+      document.querySelectorAll('[data-filter]').forEach(function(x){ x.setAttribute('aria-selected',x===b?'true':'false'); });
+      document.querySelectorAll('#proj figure').forEach(function(c){ c.hidden=!(f==='All'||c.getAttribute('data-cat')===f); });
+    });
+  });
+
+  /* railing planner (same rules as the Lovable build) */
+  var SYSTEMS={'base-shoe':{label:'Base shoe (frameless)',gap:10,end:25},spigot:{label:'Spigot clamps',gap:30,end:25},post:{label:'Post-mounted',gap:50,end:50}};
+  var MIN_RUN=300, st={unit:'m',system:'base-shoe',max:1200,height:'42 in (1070 mm)'}, runs=['6','3.5'], summary='';
+  var runsEl=document.getElementById('runs');
+  function toMm(v,u){ return Math.round(u==='m'?v*1000:v*304.8); }
+  function planRun(len,max,sys){ var g=SYSTEMS[sys].gap,e=SYSTEMS[sys].end,usable=len-2*e; var n=Math.max(1,Math.ceil((usable+g)/(max+g))); return {len:len,n:n,w:Math.floor((usable-(n-1)*g)/n)}; }
+  function drawRuns(){
+    runsEl.innerHTML='';
+    runs.forEach(function(r,i){
+      var row=document.createElement('div'); row.className='run';
+      row.innerHTML='<label for="run-'+i+'">Run '+(i+1)+'</label><div class="in"><input id="run-'+i+'" type="number" inputmode="decimal" min="0" step="0.1"><span class="u">'+st.unit+'</span></div><button type="button" class="del" aria-label="Remove run '+(i+1)+'"'+(runs.length===1?' disabled':'')+'><svg class="ic" aria-hidden="true"><use href="#i-trash"></use></svg></button>';
+      var inp=row.querySelector('input'); inp.value=r;
+      inp.addEventListener('input',function(){ runs[i]=inp.value; calc(); });
+      row.querySelector('.del').addEventListener('click',function(){ if(runs.length>1){ runs.splice(i,1); drawRuns(); calc(); } });
+      runsEl.appendChild(row);
+    });
+    document.getElementById('add-run').hidden=runs.length>=8;
+  }
+  function calc(){
+    var plans=runs.map(function(r){ return toMm(Number(r)||0,st.unit); }).filter(function(l){ return l>=MIN_RUN; }).map(function(l){ return planRun(l,st.max,st.system); });
+    var total=0,panels=0,posts=0; plans.forEach(function(p){ total+=p.len; panels+=p.n; posts+=p.n+1; });
+    var empty=plans.length===0;
+    document.getElementById('r-empty').hidden=!empty; document.getElementById('r-body').hidden=empty;
+    if(empty) return;
+    var hw = st.system==='spigot' ? ['Spigots',String(panels*2)] : st.system==='post' ? ['Posts',String(posts)] : ['Base shoe',(total/1000).toFixed(2)+' m'];
+    var stats=[['Glass panels',String(panels)],['Total length',(total/1000).toFixed(2)+' m'],hw,['Height',st.height.split(' (')[0]]];
+    document.getElementById('r-stats').innerHTML=stats.map(function(s){ return '<div><dt>'+s[0]+'</dt><dd>'+s[1]+'</dd></div>'; }).join('');
+    document.getElementById('r-runs').innerHTML=plans.map(function(p,i){
+      var pn=''; for(var j=0;j<p.n;j++) pn+='<div class="pn"></div>';
+      return '<div class="rv"><div class="lab"><span>RUN '+(i+1)+' · '+p.len+' MM</span><span>'+p.n+' × '+p.w+' MM</span></div><div class="bar2">'+pn+'</div></div>';
+    }).join('');
+    summary=['Railing planner estimate — '+SYSTEMS[st.system].label+', max panel '+st.max+' mm, height '+st.height+'.']
+      .concat(plans.map(function(p,i){ return 'Run '+(i+1)+': '+p.len+' mm → '+p.n+' panels @ ~'+p.w+' mm'; }))
+      .concat(['Total: '+panels+' panels, '+(total/1000).toFixed(2)+' m.','','Location / other notes: ']).join('\n');
+  }
+  document.querySelectorAll('[data-group]').forEach(function(g){
+    g.addEventListener('click',function(e){
+      var b=e.target.closest('button[data-v]'); if(!b) return;
+      g.querySelectorAll('button[data-v]').forEach(function(x){ x.setAttribute('aria-pressed',x===b?'true':'false'); });
+      var k=g.getAttribute('data-group'), v=b.getAttribute('data-v');
+      st[k]= k==='max' ? parseInt(v,10) : v;
+      if(k==='unit') drawRuns();
+      calc();
+    });
+  });
+  document.getElementById('add-run').addEventListener('click',function(){ runs.push(''); drawRuns(); calc(); var n=document.getElementById('run-'+(runs.length-1)); if(n) n.focus(); });
+  document.getElementById('send-est').addEventListener('click',function(){ document.getElementById('q-service').value='Glass railing or deck'; document.getElementById('q-details').value=summary; });
+  drawRuns(); calc();
+
+  /* quote form: opens the visitor's email app with the request filled in */
+  var form=document.getElementById('quote-form'), msg=document.getElementById('q-msg');
+  var EMAIL=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  function say(t,k){ msg.textContent=t; msg.className='fmsg'+(k?' '+k:''); }
+  function mark(el,bad){ el.setAttribute('aria-invalid',bad?'true':'false'); el.closest('.field').classList.toggle('bad',bad); }
+  form.addEventListener('input',function(e){ var el=e.target; if(el.getAttribute('aria-invalid')==='true' && el.value.trim()) mark(el,false); });
+  form.addEventListener('change',function(e){ var el=e.target; if(el.getAttribute('aria-invalid')==='true' && el.value.trim()) mark(el,false); });
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var first=null;
+    form.querySelectorAll('[required]').forEach(function(el){ var v=el.value.trim(), bad=!v||(el.type==='email'&&!EMAIL.test(v)); mark(el,bad); if(bad&&!first) first=el; });
+    if(first){ say('Please fill in the highlighted fields. Email needs to look like name@example.com.','err'); first.focus(); return; }
+    var q={}; Array.prototype.forEach.call(form.elements,function(el){ if(el.name) q[el.name]=el.value.trim(); });
+    var lines=['Name: '+q.name, q.company?'Company: '+q.company:null, 'Phone: '+q.phone, 'Email: '+q.email, 'Service: '+q.service, 'Project city: '+q.city, q.timeline?'Timeline: '+q.timeline:null, 'Best way to reach me: '+q.contactPref, '', 'Project details:', q.details].filter(function(l){ return l!==null; });
+    window.location.href='mailto:info@truewestglass.com?subject='+encodeURIComponent('Quote request: '+q.service+' \u2013 '+q.city)+'&body='+encodeURIComponent(lines.join('\n'));
+    say('Your email app should open with the request ready \u2014 just press send. If it doesn\u2019t, call 778-302-4774 or email info@truewestglass.com.','ok');
+  });
+
+  route();
+})();
+</script>
+
+</body>
+</html>
